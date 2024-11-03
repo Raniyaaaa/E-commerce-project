@@ -1,9 +1,18 @@
 import { Button, Container, Navbar,Badge,Row,Col,Image} from 'react-bootstrap';
 import './App.css';
 import Product from './components/Products/Product';
+import Cart from './components/Cart/Cart';
+import { useState } from 'react';
 
 const App=()=> {
+  const[showCart,setshowCart]=useState(false)
 
+  const handleCartOpen=()=>{
+    setshowCart(true)
+  }
+  const handleCartClose=()=>{
+    setshowCart(false)
+  }
 
   return (
     <>
@@ -13,7 +22,7 @@ const App=()=> {
           <Navbar.Brand href="#store">STORE</Navbar.Brand>{' '}
           <Navbar.Brand href="#about">ABOUT</Navbar.Brand>{' '}
         </Container>
-        <Button variant='outline-info'>Cart</Button>{' '}
+        <Button variant='outline-info'onClick={handleCartOpen}>Cart</Button>{' '}
         <Badge
             bg="none"
             style={{
@@ -43,6 +52,7 @@ const App=()=> {
           </div>
         </Container>
       </footer>
+      <Cart showCart={showCart} handleCartClose={handleCartClose}/>
     </>
   );
 }

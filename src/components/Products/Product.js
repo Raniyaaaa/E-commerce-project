@@ -14,7 +14,7 @@ const Product=()=>{
                     <h1 style={{ fontFamily: 'fantasy', textAlign: 'center',paddingTop:'2rem'}}>MUSIC</h1>
                     <Row style={{marginRight: '10rem' ,marginLeft: '10rem' }}>
                         {productsArr.map((product, index) => (
-                        <Col md={6} key={index} className="justify-content-center">
+                        <Col md={6} sm={12} key={index} className="justify-content-center">
                             <Card style={{ textAlign: 'center',fontFamily: 'Times New Roman',scale:'80%',border:'none'}}>
                                 <Card.Title >{product.title}</Card.Title>
                                 <Card.Img variant="none" 
