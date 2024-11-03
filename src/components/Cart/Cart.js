@@ -3,23 +3,8 @@ import { Badge, Button, Modal,Row,Col,Image, Container } from "react-bootstrap";
 import CartContext from "../../Store/CartContext"
 
 
-const Cart=(props)=>{
+const Cart=()=>{
     const cartCtx=useContext(CartContext)
-
-    // const cartElements = [
-    //     {title: 'Colors',        
-    //     price: 100,        
-    //     imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%201.png',        
-    //     quantity: 2},        
-    //     {title: 'Black and white Colors',
-    //     price: 50,        
-    //     imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%202.png',        
-    //     quantity: 3},        
-    //     {        
-    //     title: 'Yellow and Black Colors',        
-    //     price: 70,        
-    //     imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%203.png',        
-    //     quantity: 1}]
         
         const total = cartCtx.items.reduce((sum, item) => {
             return sum + (item.price * item.quantity);
@@ -28,7 +13,7 @@ const Cart=(props)=>{
 
     return(
         <Container className="justify-content-center">
-            <Modal show={props.showCart} onHide={props.handleCartClose} style={{fontFamily:"Times New Roman",fontWeight:"bold"}}>
+            <Modal show={cartCtx.showCart} onHide={cartCtx.toggleCart} style={{fontFamily:"Times New Roman",fontWeight:"bold"}}>
                 <Modal.Header closeButton style={{borderBottom:'none'}}>    
                     <Modal.Title style={{fontWeight:"bold"}} className="w-100 text-center">CART</Modal.Title>
                 </Modal.Header>
