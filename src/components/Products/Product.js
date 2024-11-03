@@ -1,12 +1,20 @@
-import React from "react"
+import React,{ useContext } from "react"
 import { Container,Button, Row,Col,Card } from "react-bootstrap"
+import CartContext from "../../Store/CartContext"
+
 const Product=()=>{
+    const cartCtx=useContext(CartContext)
 
     const productsArr = [
         { title: 'Colors', price: 100, imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%201.png'},
         { title: 'Black and white Colors', price: 50, imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%202.png'},
         { title: 'Yellow and Black Colors', price: 70,imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%203.png'},
-        { title: 'Blue Color', price: 100, imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%204.png'}]
+        { title: 'Blue Color', price: 100, imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%204.png'}
+    ]
+
+    const addItemToCart=(product)=>{
+        cartCtx.addItem({...product})
+    }
         
         return(
             <>
@@ -14,7 +22,7 @@ const Product=()=>{
                     <h1 style={{ fontFamily: 'fantasy', textAlign: 'center',paddingTop:'2rem'}}>MUSIC</h1>
                     <Row style={{marginRight: '10rem' ,marginLeft: '10rem' }}>
                         {productsArr.map((product, index) => (
-                        <Col md={6} sm={12} key={index} className="justify-content-center">
+                        <Col md={6} sm={12} xs={12} key={index} className="justify-content-center">
                             <Card style={{ textAlign: 'center',fontFamily: 'Times New Roman',scale:'80%',border:'none'}}>
                                 <Card.Title >{product.title}</Card.Title>
                                 <Card.Img variant="none" 
@@ -29,15 +37,12 @@ const Product=()=>{
                                 />                            
                                 <Card.Body className="d-flex justify-content-between align-items-center">
                                 <Card.Text>${product.price}</Card.Text>
-                                    <Button variant="info" style={{color:'white',borderRadius:'0'}}>ADD TO CART</Button>
+                                    <Button variant="info" style={{color:'white',borderRadius:'0'}} onClick={() =>addItemToCart(product)}>ADD TO CART</Button>
                                 </Card.Body>
                             </Card>
                         </Col>
                         ))}
                     </Row>
-                    <div className="d-flex justify-content-center m-3">
-                        <Button variant="secondary" style={{color:"skyblue"}}>See the Cart</Button>
-                    </div>
                 </Container>
             </>
         )

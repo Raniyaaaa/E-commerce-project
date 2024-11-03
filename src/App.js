@@ -1,18 +1,23 @@
-import { Button, Container, Navbar,Badge,Row,Col,Image} from 'react-bootstrap';
+import { Button, Container, Navbar,Badge,Image} from 'react-bootstrap';
 import './App.css';
 import Product from './components/Products/Product';
 import Cart from './components/Cart/Cart';
-import { useState } from 'react';
+
+import { useContext, useState } from 'react';
+import CartContext from './Store/CartContext';
 
 const App=()=> {
   const[showCart,setshowCart]=useState(false)
-
+  const cartCtx=useContext(CartContext)
   const handleCartOpen=()=>{
     setshowCart(true)
   }
   const handleCartClose=()=>{
     setshowCart(false)
   }
+  const totalquantity=cartCtx.items.reduce((total,item)=>{
+    return total=total+(item.quantity)
+  },0)
 
   return (
     <>
@@ -28,12 +33,12 @@ const App=()=> {
             style={{
               color:'skyblue',
               position: 'absolute',
-              top: '-6px',      // Adjust the positioning as needed
-              right: '-1px',    // Align to the top-right corner
+              top: '-6px',
+              right: '-4px', 
               fontSize: '1.2rem',
               padding: '0.4rem',
             }}>
-            {0}
+            {totalquantity}
           </Badge>
       </Navbar>
       <header className="mt-1" style={{background:"grey"}}>
@@ -42,6 +47,9 @@ const App=()=> {
         </Container>
       </header>
       <Product/>
+      <div className="d-flex justify-content-center m-3">
+        <Button variant="secondary" style={{color:"skyblue"}} onClick={handleCartOpen}>See the Cart</Button>
+      </div>
       <footer style={{ background: "skyblue", padding: '1rem' }}>
         <Container className="d-flex justify-content-between align-items-center">
           <h3 style={{ fontSize: '3rem',color:'white', fontWeight: 'bold', fontFamily: 'Times New Roman'}}>The Generics</h3>
