@@ -1,4 +1,4 @@
-import { Container, Navbar, Button, Badge } from 'react-bootstrap';
+import { Container, Navbar, Button, Badge} from 'react-bootstrap';
 import { NavLink, useLocation } from 'react-router-dom';
 import { useContext } from 'react';
 import CartContext from '../../Store/CartContext';
@@ -20,18 +20,26 @@ const MainNavigation = () => {
                     </div>
 
                     {location.pathname === '/store' && (
-                        <div className="d-flex align-items-center">
-                            <Button variant='outline-info' onClick={() => cartCtx.toggleCart(true)} style={{ padding: '0.25rem 0.5rem', fontSize: '0.8rem' }}>Cart</Button>
+                        <div className="d-flex align-items-center" style={{ width: '100px', position: 'absolute',right:'-40px' }}>
+                            <Button 
+                                variant="none" 
+                                size="sm" 
+                                onClick={() => cartCtx.toggleCart(true)} 
+                                style={{ fontSize: '0.9rem', borderColor: '#56CCF2', color: 'white', width: '40px',height:'30px' }}
+                            >
+                                Cart
+                            </Button>
                             <Badge
                                 bg="none"
                                 style={{
-                                    color: 'skyblue',
+                                    color: '#56CCF2',
                                     position: 'absolute',
-                                    top: '-6px',
-                                    right: '+32px',
+                                    top: '-9px',
+                                    right: '+40px',
                                     fontSize: '1.2rem',
                                     padding: '0.4rem',
-                                }}>
+                                }}
+                            >
                                 {totalQuantity}
                             </Badge>
                         </div>
@@ -44,6 +52,27 @@ const MainNavigation = () => {
                     <h1 style={{ fontSize: '5rem', color: 'white', fontWeight: 'bold', textAlign: 'center', fontFamily: 'Times New Roman' }}>
                         The Generics
                     </h1>
+                    {location.pathname==='/'&&(
+                        <div>
+                            <Container className="d-flex justify-content-center" style={{padding:'1rem'}}>
+                                <Button variant='none'style={{borderRadius:'0%',color:'white',scale:'1.2',borderColor:'#56CCF2'}}>Get our Latest Album</Button>
+                            </Container> 
+                            <Container className="d-flex justify-content-center">    
+                                <Button style={{
+                                    border:'2px solid #56CCF2',
+                                    borderRadius:'50%',
+                                    padding:'15px',
+                                    fontSize:'12px',
+                                    fontWeight: '200',
+                                    margin:'20px',
+                                    background: 'inherit',
+                                    color:'#56CCF2',
+                                }}>
+                                    ► 
+                                </Button> 
+                            </Container>  
+                        </div>    
+                    )}
                 </Container>
             </header>
         </>

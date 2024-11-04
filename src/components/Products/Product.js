@@ -49,7 +49,7 @@ const Product = () => {
                 </Row>
                 <div>
                     <Container className="d-flex justify-content-center mb-3">
-                        <Button variant="secondary" style={{ color: "skyblue" }} onClick={cartCtx.toggleCart}>SEE THE CART</Button>
+                        <Button variant="secondary" style={{ color: "#56CCF2" }} onClick={cartCtx.toggleCart}>SEE THE CART</Button>
                     </Container>
                 </div>
             </Container>
