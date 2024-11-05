@@ -1,5 +1,6 @@
 import Product from './Pages/Product';
 import About from './Pages/About';
+import Cart from './components/Cart/Cart';
 import RootLayout from './components/Root';
 import Home from './Pages/Home';
 import { createBrowserRouter,RouterProvider} from 'react-router-dom';
@@ -19,7 +20,12 @@ import ProductDetails from './Pages/ProductDetails';
   }
   ])
 const App=()=> {
-  return <RouterProvider router={router}></RouterProvider>
+  return (
+    <>
+    <RouterProvider router={router}></RouterProvider>
+    <Cart/>
+    </>
+  )
 }
 
 export default App;

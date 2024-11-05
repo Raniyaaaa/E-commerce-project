@@ -20,7 +20,7 @@ const MainNavigation = () => {
                         <NavLink to='/contactus' style={{ color: 'white', textDecoration: 'none' }}>CONTACT US</NavLink>
                     </div>
 
-                    {location.pathname === '/store' && (
+                    {(location.pathname === '/store'|| location.pathname.includes('/store') )&& (
                         <div className="d-flex align-items-center" style={{ width: '100px', position: 'absolute',right:'-40px' }}>
                             <Button 
                                 variant="none" 
