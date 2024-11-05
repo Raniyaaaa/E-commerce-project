@@ -16,7 +16,8 @@ const MainNavigation = () => {
                     <div className="d-flex justify-content-center flex-grow-1">
                         <NavLink to='/' style={{ marginRight: '1rem', color: 'white', textDecoration: 'none' }}>HOME</NavLink>
                         <NavLink to='/store' style={{ marginRight: '1rem', color: 'white', textDecoration: 'none' }}>STORE</NavLink>
-                        <NavLink to='/about' style={{ color: 'white', textDecoration: 'none' }}>ABOUT</NavLink>
+                        <NavLink to='/about' style={{ marginRight: '1rem', color: 'white', textDecoration: 'none' }}>ABOUT</NavLink>
+                        <NavLink to='/contactus' style={{ color: 'white', textDecoration: 'none' }}>CONTACT US</NavLink>
                     </div>
 
                     {location.pathname === '/store' && (
