@@ -1,8 +1,8 @@
 import React, { useContext} from "react";
 import { Container, Button, Row, Col, Card} from "react-bootstrap";
-import CartContext from "../Store/CartContext";
-import Cart from "../components/Cart/Cart";
-
+import CartContext from '../../src/Store/CartContext'
+import { NavLink } from "react-router-dom";
+import Cart from "../components/Cart/Cart"
 const Product = () => {
     const cartCtx = useContext(CartContext);
 
@@ -26,6 +26,7 @@ const Product = () => {
                     {productsArr.map((product, index) => (
                         <Col md={6} sm={12} xs={12} key={index} className="justify-content-center">
                             <Card style={{ textAlign: 'center', fontFamily: 'Times New Roman', scale: '80%', border: 'none' }}>
+                                <NavLink to={`/store/${product.title}`} style={{ textDecoration: 'none', color: 'black' }}>
                                 <Card.Title>{product.title}</Card.Title>
                                 <Card.Img
                                     variant="none"
@@ -39,6 +40,7 @@ const Product = () => {
                                     onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.2)")}
                                     onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
                                 />
+                                </NavLink>
                                 <Card.Body className="d-flex justify-content-between align-items-center">
                                     <Card.Text>${product.price}</Card.Text>
                                     <Button variant="info" style={{ color: 'white', borderRadius: '0' }} onClick={() => addItemToCart(product)}>ADD TO CART</Button>
