@@ -1,33 +1,35 @@
-import Product from './Pages/Product';
-import About from './Pages/About';
-import Cart from './components/Cart/Cart';
+import React ,{ useContext }from 'react';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import MainNavigation from './components/MainNavigation/MainNavigation';// Adjust the import as needed
+import Home from './Pages/Home'
+import Product from "./Pages/Product"
+import About from "./Pages/About"
 import Auth from './Pages/Auth';
-import RootLayout from './components/Root';
-import Home from './Pages/Home';
-import { createBrowserRouter,RouterProvider} from 'react-router-dom';
-import ContactUs from './Pages/ContactUs';
+import ContactUs from "./Pages/ContactUs"
 import ProductDetails from './Pages/ProductDetails';
+import CartContext from './Store/CartContext';
 
+function ProtectedProductRoute() {
+  const cartCtx = useContext(CartContext);
+  return cartCtx.isLoggedIn ? <Product /> : <Navigate to="/auth" />;
+}
 
-  const router=createBrowserRouter([
-    {path:'/',element:<RootLayout/>,
-    children:[
-      {path:'/',element:<Home/>},
-      {path:'/store',element:<Product/>},
-      {path:'/about',element:<About/>},
-      {path:'/contactus',element:<ContactUs/>},
-      {path:'/store/:title',element:<ProductDetails/>},
-      {path:'/auth',element:<Auth></Auth>}
-    ]
-  }
-  ])
-const App=()=> {
-  return (
-    <>
-    <RouterProvider router={router}></RouterProvider>
-    <Cart/>
-    </>
-  )
+function App() {
+  const cartCtx=useContext(CartContext)
+    return (
+        <Router>
+            <MainNavigation />
+            <Routes>
+                <Route path="/" element={<Home/>} />
+                <Route path="/store" element={<ProtectedProductRoute />}/>
+                <Route path="/about" element={<About />} />
+                <Route path="/auth" element={<Auth/>} />
+                <Route path="/contactus" element={<ContactUs />} />
+                <Route path="/store/:title" element={<ProductDetails />} />
+                <Route path="*" element={<Navigate to="/" />} />
+            </Routes>
+        </Router>
+    );
 }
 
 export default App;
