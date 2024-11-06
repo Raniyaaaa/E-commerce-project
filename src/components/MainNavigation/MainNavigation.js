@@ -17,6 +17,7 @@ const MainNavigation = () => {
                         <NavLink to='/' style={{ marginRight: '1rem', color: 'white', textDecoration: 'none' }}>HOME</NavLink>
                         <NavLink to='/store' style={{ marginRight: '1rem', color: 'white', textDecoration: 'none' }}>STORE</NavLink>
                         <NavLink to='/about' style={{ marginRight: '1rem', color: 'white', textDecoration: 'none' }}>ABOUT</NavLink>
+                        <NavLink to='/auth' style={{ marginRight: '1rem', color: 'white', textDecoration: 'none' }}>LOGIN</NavLink>
                         <NavLink to='/contactus' style={{ color: 'white', textDecoration: 'none' }}>CONTACT US</NavLink>
                     </div>
 

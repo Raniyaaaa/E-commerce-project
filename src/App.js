@@ -1,6 +1,7 @@
 import Product from './Pages/Product';
 import About from './Pages/About';
 import Cart from './components/Cart/Cart';
+import Auth from './Pages/Auth';
 import RootLayout from './components/Root';
 import Home from './Pages/Home';
 import { createBrowserRouter,RouterProvider} from 'react-router-dom';
@@ -15,7 +16,8 @@ import ProductDetails from './Pages/ProductDetails';
       {path:'/store',element:<Product/>},
       {path:'/about',element:<About/>},
       {path:'/contactus',element:<ContactUs/>},
-      {path:'/store/:title',element:<ProductDetails/>}
+      {path:'/store/:title',element:<ProductDetails/>},
+      {path:'/auth',element:<Auth></Auth>}
     ]
   }
   ])

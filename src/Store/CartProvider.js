@@ -4,6 +4,10 @@ import CartContext from "./CartContext";
 const CartProvider = (props) => {
     const [items, updateItems] = useState([]);
     const [showCart, setShowCart] = useState(false);
+    const initialToken = localStorage.getItem('token');
+    const [token, setToken] = useState(initialToken);
+
+    const userIsLoggedIn = !!token;
 
     const addItemToCartHandler = (product) => {
         console.log('Adding item:', product);
@@ -27,6 +31,16 @@ const CartProvider = (props) => {
         
     };
 
+    const loginHandler = (token) => {
+        setToken(token);
+        localStorage.setItem('token', token);
+      };
+
+    const logoutHandler = () => {
+        setToken(null);
+        localStorage.removeItem('token');
+      };  
+
     const toggleCartHandler = () => {
         setShowCart((prevShowCart) => !prevShowCart);
     };
@@ -37,6 +51,10 @@ const CartProvider = (props) => {
         removeItem: removeItemFromCartHandler,
         showCart: showCart,
         toggleCart: toggleCartHandler,
+        token: token,
+        isLoggedIn: userIsLoggedIn,
+        login: loginHandler,
+        logout: logoutHandler
     };
 
     return (
