@@ -34,7 +34,7 @@ const Cart=()=>{
                             </Col>
                             <Col sm={4} className="d-flex align-items-center mb-3">
                                 <Badge bg="info" style={{ marginRight:'10px' }}>{item.quantity}</Badge>
-                                <Button variant="danger">Remove</Button>
+                                <Button variant="danger" onClick={() => cartCtx.removeItem(item.id)}>Remove</Button>
                             </Col>
                         </Row>  
                     ))}

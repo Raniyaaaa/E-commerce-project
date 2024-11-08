@@ -2,6 +2,7 @@ import { useState, useRef, useContext } from 'react';
 import CartContext from '../Store/CartContext';
 import classes from "./Auth.module.css"
 import { useNavigate } from "react-router-dom"
+import Footer from '../components/MainNavigation/Footer';
 const Auth = () => {
 
   const cartCtx=useContext(CartContext)  
@@ -54,7 +55,8 @@ const Auth = () => {
         }
       })
       .then((data) => {
-        cartCtx.login(data.idToken)
+        console.log(data)
+        cartCtx.login(data.idToken,data.email)
         navigate('/store')
       })
       .catch((err) => {
@@ -64,6 +66,8 @@ const Auth = () => {
   
 
   return (
+    <>
+    <div style={{padding:'3rem'}}>
     <section className={classes.auth}>
       <h1>{isLogin ? 'Login' : 'Sign Up'}</h1>
       <form onSubmit={submitHandler}>
@@ -93,6 +97,9 @@ const Auth = () => {
         </div>
       </form>
     </section>
+    </div>
+    <Footer/>
+    </>
   );
 };
 

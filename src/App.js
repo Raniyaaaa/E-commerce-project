@@ -1,6 +1,6 @@
 import React ,{ useContext }from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import MainNavigation from './components/MainNavigation/MainNavigation';// Adjust the import as needed
+import MainNavigation from './components/MainNavigation/MainNavigation';
 import Home from './Pages/Home'
 import Product from "./Pages/Product"
 import About from "./Pages/About"
@@ -15,7 +15,6 @@ function ProtectedProductRoute() {
 }
 
 function App() {
-  const cartCtx=useContext(CartContext)
     return (
         <Router>
             <MainNavigation />

@@ -1,0 +1,56 @@
+{
+  "Cart": [
+    {
+      "id": "862c",
+      "user": "raniyagmailcom",
+      "items": []
+    },
+    {
+      "id": "c82c",
+      "user": "testgmailcom",
+      "items": [
+        {
+          "title": "Colors",
+          "price": 100,
+          "imageUrl": "https://prasadyash2411.github.io/ecom-website/img/Album%201.png",
+          "id": 0.08937446092900303,
+          "quantity": 1
+        },
+        {
+          "title": "Black and white Colors",
+          "price": 50,
+          "imageUrl": "https://prasadyash2411.github.io/ecom-website/img/Album%202.png",
+          "id": 0.3972178738134071,
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "user": "amjithsb1234gmailcom",
+      "items": [
+        {
+          "title": "Colors",
+          "price": 100,
+          "imageUrl": "https://prasadyash2411.github.io/ecom-website/img/Album%201.png",
+          "id": 0.7146508777216487,
+          "quantity": 5
+        },
+        {
+          "title": "Black and white Colors",
+          "price": 50,
+          "imageUrl": "https://prasadyash2411.github.io/ecom-website/img/Album%202.png",
+          "id": 0.4498534449260361,
+          "quantity": 2
+        },
+        {
+          "title": "Blue Color",
+          "price": 100,
+          "imageUrl": "https://prasadyash2411.github.io/ecom-website/img/Album%204.png",
+          "id": 0.8105350782381937,
+          "quantity": 1
+        }
+      ],
+      "id": "9f0a"
+    }
+  ]
+}

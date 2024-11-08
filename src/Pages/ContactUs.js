@@ -1,5 +1,6 @@
 import React ,{ useState } from "react"
 import { Button,Container } from "react-bootstrap";
+import Footer from "../components/MainNavigation/Footer";
 
 const ContactUs=()=>{
 
@@ -28,6 +29,7 @@ const ContactUs=()=>{
     }
 
     return(
+        <>
         <Container style={{paddingBottom:'2rem'}}>
             <h1 style={{textAlign:'center',marginTop:'1rem',fontFamily: 'fantasy',padding:'1rem'}}>CONTACT US</h1>
             <form style={{paddingTop:'2rem',paddingLeft:'10rem',paddingRight:'10rem',display:'flex',flexDirection:'column'}} onSubmit={submitDetailshandler}>
@@ -45,6 +47,8 @@ const ContactUs=()=>{
                 </div>
             </form>
         </Container>
+        <Footer/>
+        </>
     )
 }
 

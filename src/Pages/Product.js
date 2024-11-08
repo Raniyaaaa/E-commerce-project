@@ -3,6 +3,7 @@ import { Container, Button, Row, Col, Card} from "react-bootstrap";
 import CartContext from '../../src/Store/CartContext'
 import { NavLink } from "react-router-dom";
 import Cart from "../components/Cart/Cart"
+import Footer from "../components/MainNavigation/Footer";
 const Product = () => {
     const cartCtx = useContext(CartContext);
 
@@ -57,6 +58,7 @@ const Product = () => {
             </Container>
 
             <Cart/>
+            <Footer/>
         </>
     );
 }

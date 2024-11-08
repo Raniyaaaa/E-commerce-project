@@ -1,5 +1,6 @@
 import React from 'react'
 import { Table,Button, Container } from 'react-bootstrap';
+import Footer from '../components/MainNavigation/Footer';
 
 const Home=()=>{
 
@@ -13,6 +14,7 @@ const Home=()=>{
     ];
 
     return(
+        <>
         <Container style={{paddingRight:'15rem',paddingLeft:'15rem',paddingBottom:'2rem'}}>
             <h1 style={{textAlign:'center',padding:'2rem',fontFamily: 'fantasy'}}>TOURS</h1>
             <Table bordered-bottom>
@@ -30,6 +32,8 @@ const Home=()=>{
                 </tbody>
             </Table>
         </Container>
+        <Footer/>
+        </>
     )
 }
 export default Home;
