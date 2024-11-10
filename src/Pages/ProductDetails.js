@@ -1,7 +1,8 @@
-import React, { useContext, useState } from 'react';
+import React, { Suspense,useContext, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Container, Image, Card, Row, Col, Button } from 'react-bootstrap';
 import CartContext from '../Store/CartContext';
+const Cart =React.lazy(()=> import('../components/Cart/Cart'));
 
 const products = {
     'Colors': {title:'Colors' ,price: 100, images: ['https://prasadyash2411.github.io/ecom-website/img/Album%201.png', 'https://i.pinimg.com/736x/f6/f4/30/f6f4309734cb2125a8f6d7b6d9e5599f.jpg','https://www.tallengestore.com/cdn/shop/products/No1-RoyalRedAndBlue-MarkRothko-ColourfieldPainting_992c1fd9-b2c6-44ea-bb8e-51ad86391766.jpg?v=1636347122', 'https://www.creativefabrica.com/wp-content/uploads/2022/05/17/Futuristic-Red-Blue-Background-Design-Graphics-30683310-1-1-580x371.jpg'], reviews: ['Amazing colors!', 'Worth the price!'] },
@@ -27,6 +28,7 @@ const ProductDetails = () => {
     }
 
     return (
+        <>
         <Container style={{padding:'3rem'}}>
             <h2>{title}</h2>
             <Row>
@@ -76,6 +78,10 @@ const ProductDetails = () => {
             </Row>
             
         </Container>
+        <Suspense fallback={<div style={{textAlign:'center',padding:'10rem',color:'grey'}}><h2>Loading...</h2></div>}>
+            <Cart/>
+        </Suspense>
+    </>
     );
 };
 

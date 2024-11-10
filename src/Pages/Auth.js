@@ -3,6 +3,7 @@ import CartContext from '../Store/CartContext';
 import classes from "./Auth.module.css"
 import { useNavigate } from "react-router-dom"
 import Footer from '../components/MainNavigation/Footer';
+
 const Auth = () => {
 
   const cartCtx=useContext(CartContext)  

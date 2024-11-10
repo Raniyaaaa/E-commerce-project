@@ -16,7 +16,7 @@ const Home=()=>{
     return(
         <>
         <Container style={{paddingRight:'15rem',paddingLeft:'15rem',paddingBottom:'2rem'}}>
-            <h1 style={{textAlign:'center',padding:'2rem',fontFamily: 'fantasy'}}>TOURS</h1>
+        <h1 style={{ textAlign: 'center', fontSize: '2.5rem', marginBottom: '1rem' ,fontFamily: 'fantasy',marginTop:'2rem'}}>TOURS</h1>
             <Table bordered-bottom>
                 <tbody>
                     {tourDates.map((event, index) => (

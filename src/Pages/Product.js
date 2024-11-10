@@ -1,9 +1,9 @@
-import React, { useContext} from "react";
+import React, { Suspense, useContext} from "react";
 import { Container, Button, Row, Col, Card} from "react-bootstrap";
 import CartContext from '../../src/Store/CartContext'
 import { NavLink } from "react-router-dom";
-import Cart from "../components/Cart/Cart"
 import Footer from "../components/MainNavigation/Footer";
+const Cart =React.lazy(()=> import('../components/Cart/Cart'));
 const Product = () => {
     const cartCtx = useContext(CartContext);
 
@@ -57,7 +57,10 @@ const Product = () => {
                 </div>
             </Container>
 
-            <Cart/>
+            <Suspense fallback={<div style={{textAlign:'center',padding:'10rem',color:'grey'}}><h2>Loading...</h2></div>}>
+                <Cart/>
+            </Suspense>        
+            
             <Footer/>
         </>
     );

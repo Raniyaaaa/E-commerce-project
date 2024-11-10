@@ -31,7 +31,7 @@ const ContactUs=()=>{
     return(
         <>
         <Container style={{paddingBottom:'2rem'}}>
-            <h1 style={{textAlign:'center',marginTop:'1rem',fontFamily: 'fantasy',padding:'1rem'}}>CONTACT US</h1>
+            <h1 style={{ textAlign: 'center', fontSize: '2.5rem', marginTop: '2rem' ,fontFamily: 'fantasy',}}>CONTACT US</h1>
             <form style={{paddingTop:'2rem',paddingLeft:'10rem',paddingRight:'10rem',display:'flex',flexDirection:'column'}} onSubmit={submitDetailshandler}>
                 <label>Name 
                     <input type="text" value={name} onChange={(e)=>setName(e.target.value)} style={{borderRadius:'3rem',width:'100%',marginBottom:'1rem',marginTop:'0.5rem'}} required></input>

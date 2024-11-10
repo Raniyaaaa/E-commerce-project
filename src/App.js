@@ -1,13 +1,15 @@
-import React ,{ useContext }from 'react';
+import React ,{ useContext ,Suspense }from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import MainNavigation from './components/MainNavigation/MainNavigation';
-import Home from './Pages/Home'
-import Product from "./Pages/Product"
-import About from "./Pages/About"
-import Auth from './Pages/Auth';
-import ContactUs from "./Pages/ContactUs"
-import ProductDetails from './Pages/ProductDetails';
+
 import CartContext from './Store/CartContext';
+const Home =React.lazy(()=> import('./Pages/Home'));
+const Product =React.lazy(()=> import('./Pages/Product'));
+const About =React.lazy(()=> import('./Pages/About'));
+const Auth =React.lazy(()=> import('./Pages/Auth'));
+const ContactUs =React.lazy(()=> import('./Pages/ContactUs'));
+const ProductDetails =React.lazy(()=> import('./Pages/ProductDetails'));
+const MainNavigation =React.lazy(()=> import('./components/MainNavigation/MainNavigation'));
+
 
 function ProtectedProductRoute() {
   const cartCtx = useContext(CartContext);
@@ -17,6 +19,7 @@ function ProtectedProductRoute() {
 function App() {
     return (
         <Router>
+            <Suspense fallback={<div style={{textAlign:'center',padding:'10rem',color:'grey'}}><h2>Loading...</h2></div>}>
             <MainNavigation />
             <Routes>
                 <Route path="/" element={<Home/>} />
@@ -27,6 +30,7 @@ function App() {
                 <Route path="/store/:title" element={<ProductDetails />} />
                 <Route path="*" element={<Navigate to="/" />} />
             </Routes>
+            </Suspense>
         </Router>
     );
 }
